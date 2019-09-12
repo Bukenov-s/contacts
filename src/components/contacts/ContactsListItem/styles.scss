@@ -1,0 +1,76 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px;
+  grid-template-areas: 
+    "name-col phone-col buttons-col";
+  grid-gap: 10px;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+  @media only screen and (min-width : 480px) {
+    grid-template-columns: 1fr 1fr 80px;
+    grid-template-areas: 
+      "name-col phone-col buttons-col";
+  }
+
+  @media only screen and (min-width : 768px) {
+    grid-template-columns: 1fr 1fr 1fr 80px;
+    grid-template-areas: 
+      "name-col email-col phone-col buttons-col";
+  }
+
+  @media only screen and (min-width : 1024px) {
+    grid-template-columns: 1fr 1fr 1fr 80px;
+    grid-template-areas: 
+    "name-col email-col phone-col buttons-col";
+  }
+}
+
+.name_field {
+  grid-area: name-col;
+  word-break: break-all;
+}
+
+.email_field {
+  grid-area: email-col;
+  word-break: break-all;
+  display: none;
+
+  @media only screen and (min-width : 768px) {
+    display: flex;
+  }
+}
+
+.phone_field {
+  grid-area: phone-col;
+  word-break: break-all;
+}
+
+.buttons_field {
+  grid-area: buttons-col;
+  display: flex;
+
+  button {
+    flex: 1;
+    height: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+  }
+}
+
+.edit {
+  background: $yellow;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.delete {
+  background: $red;
+  color: #fff;
+}

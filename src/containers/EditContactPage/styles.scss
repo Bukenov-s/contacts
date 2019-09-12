@@ -1,0 +1,26 @@
+.container {
+  margin: 3rem 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      border: none;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+.submit {
+  background: $yellow;
+}
+
+.cancel {
+  background: $red;
+}
