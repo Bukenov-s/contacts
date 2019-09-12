@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, useCallback } from 'react';
+import React, { FC, useEffect, useState, useCallback, FormEventHandler } from 'react';
 import { connect } from 'react-redux';
 import * as contactActions from '~/redux/contacts/actions';
 import { IState } from '~/types';
@@ -58,7 +58,7 @@ const EditContactPage: FC<Props> = ({
     }
   }, [setEditedEmail, setEditedName, setEditedPhone]);
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit: FormEventHandler = useCallback((e) => {
     e.preventDefault();
 
     const edited_contact = {

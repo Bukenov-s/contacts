@@ -1,13 +1,14 @@
 import React, { FC, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import * as styles from './styles.scss';
+import * as actions from '~/redux/contacts/actions';
 
 interface IProps {
   id: number;
   name: string;
   email: string;
   phone: string;
-  deleteContact: any;
+  deleteContact: typeof actions.deleteContact;
 }
 
 const ContactsListItem: FC<IProps> = ({

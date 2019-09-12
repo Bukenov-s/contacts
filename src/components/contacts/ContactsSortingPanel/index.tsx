@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import * as styles from './styles.scss';
 import { SortingCategory } from '~/components/contacts/SortingCategory';
+import { IContact } from '~/types';
 
 interface IProps {
-  contacts: any;
-  setContacts: any;
+  contacts: IContact[];
+  setContacts: (contacts: IContact[]) => void;
 }
 
 const ContactsSortingPanel: FC<IProps> = ({

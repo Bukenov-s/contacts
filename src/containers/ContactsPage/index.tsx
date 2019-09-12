@@ -24,7 +24,6 @@ const ContactsPage: FC<Props> = ({
   const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    console.log('effect fires');
     setContacts(contacts_list);
   }, [contacts_list]);
 

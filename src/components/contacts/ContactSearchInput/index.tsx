@@ -1,9 +1,10 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, ChangeEventHandler } from 'react';
 import * as styles from './styles.scss';
+import { IContact } from '~/types';
 
 interface IProps {
-  contacts: any;
-  setContacts: any;
+  contacts: IContact[];
+  setContacts: (contacts: IContact[]) => void;
 }
 
 const ContactSearchInput: FC<IProps> = ({
@@ -12,7 +13,7 @@ const ContactSearchInput: FC<IProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleInputChange = useCallback((e) => {
+  const handleInputChange: ChangeEventHandler<HTMLInputElement> = useCallback((e) => {
     setSearchQuery(e.target.value);
     if (!e.target.value) {
       setContacts(contacts);
@@ -32,9 +33,6 @@ const ContactSearchInput: FC<IProps> = ({
         return 1;
       }
     });
-
-    console.log('initial', contacts);
-    console.log('sorted', sorted_contacts);
 
     setContacts(sorted_contacts);
   }, [setSearchQuery, contacts, searchQuery, setContacts]);

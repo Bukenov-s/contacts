@@ -1,10 +1,12 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import * as styles from './styles.scss';
 import { ContactsListItem } from '~/components/contacts/ContactsListItem';
+import { IContact } from '~/types';
+import * as actions from '~/redux/contacts/actions';
 
 interface IProps {
-  contacts: any;
-  deleteContact: any;
+  contacts: IContact[];
+  deleteContact: typeof actions.deleteContact;
 }
 
 const ContactsList: FC<IProps> = ({

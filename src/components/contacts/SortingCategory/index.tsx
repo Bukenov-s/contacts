@@ -1,5 +1,6 @@
 import React, { FC, useState, useCallback } from 'react';
 import * as styles from './styles.scss';
+import { IContact } from '~/types';
 
 const up_icon = require('~/assets/up.svg');
 const down_icon = require('~/assets/down.svg');
@@ -7,8 +8,8 @@ const down_icon = require('~/assets/down.svg');
 interface IProps {
   name: string;
   className: any;
-  contacts: any;
-  setContacts: any;
+  contacts: IContact[];
+  setContacts: (contacts: IContact[]) => void;
 }
 
 const SortingCategory: FC<IProps> = ({
@@ -73,7 +74,7 @@ const SortingCategory: FC<IProps> = ({
     >
       <span>{name}</span>
       <span>
-        <img className={styles.icon} src={setIcon()} alt="" /> 
+        <img className={styles.icon} src={setIcon()} alt="" />
       </span>
     </button>
   );

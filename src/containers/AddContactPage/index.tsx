@@ -1,9 +1,9 @@
-import React, { FC, useState, useCallback } from 'react';
+import React, { FC, useState, useCallback, FormEventHandler } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as styles from './styles.scss';
 import { IState } from '~/types';
 import * as actions from '~/redux/contacts/actions';
-import { Link } from 'react-router-dom';
 
 const mapStateToProps = ({ contacts }: IState) => ({
   // for later usage maybe
@@ -22,7 +22,7 @@ const AddContactPage: FC<Props> = ({
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
 
-  const handleSubmit = useCallback((e) => {
+  const handleSubmit: FormEventHandler = useCallback((e) => {
     e.preventDefault();
 
     const new_contact = {
