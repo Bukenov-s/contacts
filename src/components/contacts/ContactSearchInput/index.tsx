@@ -20,11 +20,15 @@ const ContactSearchInput: FC<IProps> = ({
     }
 
     const sorted_contacts = [...contacts].sort((a, b) => {
-      if (a.name.indexOf(searchQuery) > b.name.indexOf(searchQuery)) {
+      if (a.name.toLowerCase().indexOf(searchQuery) < 0 && b.name.toLowerCase().indexOf(searchQuery) < 0) {
+        return 0;
+      }
+
+      if (a.name.toLowerCase().indexOf(searchQuery) > b.name.toLowerCase().indexOf(searchQuery)) {
         return -1;
       }
 
-      if (b.name.indexOf(searchQuery) > a.name.indexOf(searchQuery)) {
+      if (b.name.toLowerCase().indexOf(searchQuery) > a.name.toLowerCase().indexOf(searchQuery)) {
         return 1;
       }
     });
@@ -33,7 +37,6 @@ const ContactSearchInput: FC<IProps> = ({
     console.log('sorted', sorted_contacts);
 
     setContacts(sorted_contacts);
-
   }, [setSearchQuery, contacts, searchQuery, setContacts]);
 
   return (

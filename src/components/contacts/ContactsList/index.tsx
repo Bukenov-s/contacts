@@ -11,7 +11,6 @@ const ContactsList: FC<IProps> = ({
   contacts,
   deleteContact,
 }) => {
-
   return (
     <div>
       {
